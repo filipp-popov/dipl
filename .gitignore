@@ -1,1 +1,3 @@
 /venv
+/dip/main/migrations
+/dip/dip/__pycache__
