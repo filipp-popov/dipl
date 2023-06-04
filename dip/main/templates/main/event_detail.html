@@ -1,2 +1,15 @@
-{{object.title}}
-{{object.description}}
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card mb-3" style="max-width: 540px;">
+{% comment %} <div class="card-img-top"> {% endcomment %}
+<img src="{{ object.img.url }}" class="h-100 d-inline-block" alt="...">
+<p>{{object.title}}</p>
+<p>{{object.description}}</p>
+</div>
+{% for review in object.review_set.all %}
+<p>{{review.body}}</p>
+<p>{{review.author}}</p>
+{%endfor%}
+{% endblock content %}
