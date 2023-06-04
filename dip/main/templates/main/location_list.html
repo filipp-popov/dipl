@@ -1,0 +1,12 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Locations</h1>
+{% for location in object_list %}
+  <ul>
+    <li><a href="{{ location.get_absolute_url }}">{{ location.title }}</a></li>
+  </ul>
+{% endfor %}
+
+{% endblock content %}

@@ -1,0 +1,27 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+  Tets
+<h2>{{ object.title }}</h2>
+<p>{{ object.description }}</p>
+
+    {% comment %} {% for evenst in object.event_set.all %} {% endcomment %}
+
+    {% for ev in object.event_set.all %}
+    <a href="{{ ev.get_absolute_url }}">{{ ev.title }}</a>
+      {% comment %} {% for e in ev %}
+        
+
+      {% endfor%} {% endcomment %}
+    {% endfor %}
+    
+      {% comment %} <ul>
+        <li>{{ object.event.title }}</a></li>
+      </ul>
+    {% endfor %} {% endcomment %}
+  </div>
+{% endblock content %}
+
+
