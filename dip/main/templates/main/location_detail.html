@@ -14,9 +14,10 @@
 
 
 
-
+    
 
   <div class="card" style="width: 18rem;">
+   
 
             {% if ev.img %}
             <img src="{{ ev.img.url }}" class="h-50 d-inline-block" alt="...">
@@ -26,20 +27,17 @@
 
                   <div class="card-body">
                       <h5 class="card-title">{{ev.title}}</h5>
-                      <!-- <p class="card-text">{{ev.description}}</p> -->
+                     
 
-                  </div>
-                                  <ul class="list-group list-group-flush">
-                                      <!-- <li class="list-group-item">An item</li>
-                                      <li class="list-group-item">A second item</li>
-                                      <li class="list-group-item">A third item</li> -->
-                                  </ul>
+                   </div>
+
                 <div class="card-body">
                     <a href="{{ev.get_absolute_url}}" class="card-link">Подробнее</a>
                 </div>
-        </div>
+    
+    </div>
 
-
+    
 
 {% endfor %}
     

@@ -1,4 +1,6 @@
 /venv
-/dip/main/migrations
+
 /dip/dip/__pycache__
+
 dipl.code-workspace
+/dip/main/__pycache__

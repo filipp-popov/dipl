@@ -55,7 +55,7 @@ class Review(models.Model):
         ordering = ['created_on']
 
     def __str__(self):
-        return 'Comment {} by {}'.format(self.body, self.author)
+        return 'Comment {} by {}'.format(self.event, self.author)
 
 
 

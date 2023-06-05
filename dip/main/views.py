@@ -61,26 +61,29 @@ def logout_request(request):
 
 
 def event_detail(request, location, slug):
-    template_name = 'review_detail.html'
-    rev = Event.objects.filter(slug=slug)
-    
-    reviews = rev.review.all.filter(active=True)
+    template_name = 'main/review_detail.html'
+    rev = Review.objects.filter(event__slug=slug).filter(event__location__slug=location)
+    ev = Event.objects.get(slug=slug)
+    reviews = rev.filter(active=True)
     new_review = None
     # Review posted
     if request.method == 'POST':
         review_form = ReviewForm(data=request.POST)
         if review_form.is_valid():
+            
 
-            # Create review  object but don't save to database yet
+
             new_review = review_form.save(commit=False)
-            # Assign the current event to the review 
-            new_review.event = rev
-            # Save the comment to the database
+            new_review.event = ev
+
+
+            new_review.author = request.user
+
             new_review.save()
     else:
         review_form = ReviewForm()
 
-    return render(request, template_name, {'post': rev,
+    return render(request, template_name, {'event': ev,
                                            'reviews': reviews,
                                            'new_review': new_review,
                                            'review_form': review_form})
